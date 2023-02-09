@@ -1,8 +1,21 @@
-import SearchPage from "./components/SearchPage";
+import { Route, Routes } from "react-router-dom";
+import Nav from "./components/Nav";
+import About from "./pages/About";
+import Book from "./pages/Book";
+import Home from "./pages/Home";
 import "./styles.css";
 
 function App() {
-  return <SearchPage />;
+  return (
+    <div className="App">
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        {/* <Route path="/books/:id" element={<Book />} /> */}
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
