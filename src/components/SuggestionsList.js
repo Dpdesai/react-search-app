@@ -1,43 +1,40 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context/book-context";
 
-function SuggestionsList({ book }) {
-  //function to return loaded JSX
-  const loaded = () => {
-    return (
-      <div className="result-data">
-        {book.map((item, id) => {
+function SuggestionsList() {
+  const { isLoading, books } = useGlobalContext();
+  console.log(books);
+
+  if (isLoading) {
+    return <div className="noresult-data">No data Found</div>;
+  }
+
+  return (
+    <div className="result-data">
+      {books &&
+        books.map((item, id) => {
           return (
             <div key={id} className="books-list">
-              {/* <p>{item.id}</p> */}
               <div className="book-thumbnail">
-                <img src={item.volumeInfo.imageLinks.thumbnail} />
+                <img
+                  src={item.volumeInfo.imageLinks.thumbnail}
+                  alt="book-thumbnail"
+                />
               </div>
               <Link to={`/books/${item.id}`}>{item.volumeInfo.title}</Link>
               <div>By {item.volumeInfo.authors}</div>
-              <div>{item.saleInfo.price}</div>
+              <div>{item.saleInfo.lastPrice}</div>
               <div>Published by {item.volumeInfo.publisher}</div>
               <div className="rating">
                 <span>{item.volumeInfo.averageRating}</span>
               </div>
+              {/* <QuickViewButton /> */}
             </div>
           );
         })}
-      </div>
-    );
-  };
-
-  //function to return loading JSX
-  const loading = () => {
-    return (
-      <div className="result-data">
-        <h2>No Books to Display</h2>
-      </div>
-    );
-  };
-
-  //Ternary operator will determine which functions JSX we will return
-  return book ? loaded() : loading();
+    </div>
+  );
 }
 
-// We must export the component to use it in other files
 export default SuggestionsList;

@@ -6,7 +6,9 @@ function Nav() {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={siteLogo} alt="logo" />
+        <Link to="/">
+          <img src={siteLogo} alt="logo" />
+        </Link>
       </div>
       <div className="nav">
         <Link to="/">
@@ -14,6 +16,9 @@ function Nav() {
         </Link>
         <Link to="/about">
           <div>About</div>
+        </Link>
+        <Link to="/books">
+          <div>Books</div>
         </Link>
       </div>
     </div>
