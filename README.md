@@ -2,7 +2,7 @@
 
 ## Netlify App Link
 
-- https://fancy-gumdrop-8992f7.netlify.app/
+- https://melodious-daifuku-c1749c.netlify.app/
 
 ## Table of Contents
 
