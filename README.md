@@ -1,5 +1,9 @@
 ## Preview
 
+## Netlify App Link
+
+-
+
 ## Table of Contents
 
 - [About](#about)
@@ -9,14 +13,17 @@
 
 ## About
 
-- It is Book search Web App built by using React, Context and Google Books API. It fetches the list of the desired Books entered by user. It lets user to redirect to Book detail page so that user can view descriptions and other information regarding the book.
+- It is Book search Web App built by using React, Context and **Google Books API**. It fetches the list of the desired Books entered by user. It lets user to redirect to Book detail page so that user can view descriptions and other information regarding the book.
 
 ## Technologies used
 
 - ReactJS
+- JavaScript
 - React Context
-- React-Router
-- css
+- React Router
+- React Slider
+- HTML
+- CSS
 
 ## Features
 
@@ -41,3 +48,7 @@ npm install
 ```sh
 npm start
 ```
+
+## Status
+
+Basic functionalities are done. Maybe in Future can add the Redux tool kit and modal and authentication related stuffs.

@@ -5,7 +5,7 @@ import { useGlobalContext } from "../context/book-context";
 
 function Book() {
   //Calling Global contetx
-  const { isLoading, books, showBook } = useGlobalContext();
+  const { isLoading, books } = useGlobalContext();
 
   //Checking Book id and showing matching book data
   const { id } = useParams();
