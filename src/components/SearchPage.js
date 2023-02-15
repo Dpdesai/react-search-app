@@ -6,8 +6,10 @@ import SuggestionsList from "./SuggestionsList";
 function SearchPage() {
   return (
     <div className="search-page">
-      <Header />
-      <SearchBar />
+      <div className="search-block">
+        <Header />
+        <SearchBar />
+      </div>
       <SuggestionsList />
     </div>
   );

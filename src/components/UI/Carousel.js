@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context/book-context";
+import Slider from "react-slick";
+import { useGlobalContext } from "../../context/book-context";
+import "./Carousel.css";
 
-function SuggestionsList() {
+function Carousel() {
+  //Slider Setting
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+
   // Page Focus to top
   const scrollToTop = () => {
     window.scrollTo({
@@ -21,19 +33,21 @@ function SuggestionsList() {
   }
 
   return (
-    <div className="result-data">
+    <Slider {...settings} className="book-slider">
       {books &&
         books.map((item, id) => {
           return (
-            <div key={id} className="books-list">
-              <Link to={`/books/${item.id}`} onClick={scrollToTop}>
-                <div className="book-thumbnail">
+            <div className="slider-list-wrap">
+              <div key={id} className="slider-list">
+                <div className="thumbnail">
                   <img
                     src={item.volumeInfo.imageLinks.thumbnail}
                     alt="book-thumbnail"
                   />
                 </div>
-                <h3>{item.volumeInfo.title}</h3>
+                <Link to={`/books/${item.id}/`} onClick={scrollToTop}>
+                  {item.volumeInfo.title}
+                </Link>
                 <p>{item.volumeInfo.authors}</p>
                 <p>Published by {item.volumeInfo.publisher}</p>
                 {item.volumeInfo.averageRating && (
@@ -43,12 +57,12 @@ function SuggestionsList() {
                     <span>({item.volumeInfo.ratingsCount})</span>
                   </div>
                 )}
-              </Link>
+              </div>
             </div>
           );
         })}
-    </div>
+    </Slider>
   );
 }
 
-export default SuggestionsList;
+export default Carousel;

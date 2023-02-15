@@ -4,12 +4,12 @@ import homeBgImage from "../assets/images/book-bg.jpg";
 
 function Home() {
   return (
-    <>
-      {/* <div className="home-banner">
+    <div className="home">
+      <div className="home-banner">
         <img src={homeBgImage} alt="homebg" />
-      </div> */}
+      </div>
       <SearchPage />
-    </>
+    </div>
   );
 }
 

@@ -53,7 +53,21 @@ h1 {
 }
 
 .home-banner img {
-  max-width: 100%;
+  width: calc(100vw - 17px);
+  height: 400px;
+  overflow: hidden;
+}
+
+.home .search-page .search-block {
+  padding-top: 100px;
+}
+
+.home .search-page .search-block h1 {
+  color: #fff;
+}
+
+.home .search-page .result-data {
+  margin-top: 150px;
 }
 
 .search-wrap {
@@ -119,24 +133,38 @@ h1 {
 }
 
 .result-data .books-list {
-  width: 30%;
-  padding: 10px 5px;
-  border: 2px solid #6ea4eb;
+  width: 28%;
+  padding: 10px 20px;
   transition: all ease 0.5s;
   border-radius: 4px;
   text-align: center;
   font-size: 14px;
   cursor: pointer;
+  box-shadow: 0px 2px 6px 3px rgba(204, 204, 204, 1);
+  transform: scale(0.9);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
 }
 
 .result-data .books-list:hover {
-  border-radius: 4px;
-  transition: all ease 0.5s;
-  box-shadow: 0px 2px 6px 3px rgba(204, 204, 204, 1);
+  transform: scale(1);
 }
 
-.books-list h3 {
-  color: #1a73e8;
+.result-data .rating span {
+  font-weight: 600;
+}
+
+.result-data .rating span:first-child {
+  font-weight: 500;
+}
+
+.books-list a {
+  text-decoration: none;
+  color: #000;
+}
+
+.books-list h3 a {
+  color: #000;
   margin-bottom: 0;
   font-size: 18px;
   line-height: 26px;
@@ -162,6 +190,38 @@ h1 {
   background-color: #1055b1;
 }
 
+.main-wrap {
+  padding: 50px 100px;
+}
+
+.main-wrap .back {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  padding-left: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.main-wrap .back svg {
+  width: 25px;
+  height: 16px;
+  margin-right: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.main-wrap .back:hover {
+  padding-left: 30px;
+  text-decoration: underline;
+}
+
+.main-wrap .back:hover svg {
+  opacity: 1;
+}
+
 .about {
   padding: 0 100px;
 }
@@ -185,7 +245,7 @@ h1 {
 
 .book-img img {
   display: block;
-  width: 100%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -195,4 +255,14 @@ h1 {
 
 .page-count span {
   font-weight: 600;
+}
+
+.slider-section {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.slider-section h3 {
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
