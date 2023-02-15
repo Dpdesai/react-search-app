@@ -41,6 +41,7 @@ h1 {
 
 .home-banner {
   position: absolute;
+  height: 405px;
   z-index: -1;
 }
 
@@ -55,11 +56,9 @@ h1 {
 
 .home-banner img {
   width: 100vw;
-  height: 400px;
+  height: 405px;
   overflow: hidden;
   object-fit: cover;
-
-  height: 400px;
   overflow: hidden;
 }
 
@@ -272,4 +271,28 @@ h1 {
 .slider-section h3 {
   margin-left: 20px;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .search-wrap {
+    width: 95%;
+  }
+  .result-data {
+    max-width: 96%;
+    gap: 20px;
+  }
+  .result-data .books-list {
+    width: 36%;
+  }
+  .main-wrap {
+    padding: 50px 20px;
+  }
+  .books-detail {
+    padding: 50px 20px;
+    flex-direction: column;
+  }
+  .books-detail .book-img,
+  .books-detail .book-info {
+    width: 100%;
+  }
 }
