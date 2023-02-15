@@ -12,7 +12,7 @@ function SuggestionsList() {
   };
 
   // Calling Gloabal Context
-  const { isLoading, books } = useGlobalContext();
+  const { isLoading, books, search } = useGlobalContext();
   console.log(books);
 
   //Checking loading state
@@ -22,17 +22,19 @@ function SuggestionsList() {
 
   return (
     <div className="result-data">
-      {books &&
+      {/* {books &&
         books.map((item, id) => {
           return (
             <div key={id} className="books-list">
               <Link to={`/books/${item.id}`} onClick={scrollToTop}>
-                <div className="book-thumbnail">
-                  <img
-                    src={item.volumeInfo.imageLinks.thumbnail}
-                    alt="book-thumbnail"
-                  />
-                </div>
+                {item.volumeInfo.imageLinks.thumbnail && (
+                  <div className="book-thumbnail">
+                    <img
+                      src={item.volumeInfo.imageLinks.thumbnail}
+                      alt="book-thumbnail"
+                    />
+                  </div>
+                )}
                 <h3>{item.volumeInfo.title}</h3>
                 <p>{item.volumeInfo.authors}</p>
                 <p>Published by {item.volumeInfo.publisher}</p>
@@ -46,7 +48,35 @@ function SuggestionsList() {
               </Link>
             </div>
           );
-        })}
+        })} */}
+      {books && search !== ""
+        ? books.map((item, id) => {
+            return (
+              <div key={id} className="books-list">
+                <Link to={`/books/${item.id}`} onClick={scrollToTop}>
+                  {item.volumeInfo.imageLinks && (
+                    <div className="book-thumbnail">
+                      <img
+                        src={item.volumeInfo.imageLinks.thumbnail}
+                        alt="book-thumbnail"
+                      />
+                    </div>
+                  )}
+                  <h3>{item.volumeInfo.title}</h3>
+                  <p>{item.volumeInfo.authors}</p>
+                  <p>Published by {item.volumeInfo.publisher}</p>
+                  {item.volumeInfo.averageRating && (
+                    <div className="rating">
+                      <span>Ratings: </span>
+                      <span>{item.volumeInfo.averageRating} </span>
+                      <span>({item.volumeInfo.ratingsCount})</span>
+                    </div>
+                  )}
+                </Link>
+              </div>
+            );
+          })
+        : null}
     </div>
   );
 }

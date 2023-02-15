@@ -9,10 +9,10 @@ function SearchBar() {
       <input
         type="text"
         name="search"
-        onChange={(event) => handleSearch(event.target.value)}
         value={search}
         placeholder="Search book here..."
         className="search"
+        onChange={(event) => handleSearch(event.target.value)}
       />
       <input type="submit" value="submit" className="submit-btn" />
     </form>
